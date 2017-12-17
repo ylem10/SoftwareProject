@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body style="height: 100%; margin: 0">
+<div class="data" style="display: none">{{ input_data }}</div>
+<div id="container" style="height: 100%"></div>
+<script src="{{ url_for('static', filename='lib/js/jquery-3.1.1.min.js') }}"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+<script type="text/javascript"
+        src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+<script type="text/javascript">
+    var dom = document.getElementById("container");
+    var myChart = echarts.init(dom);
+    var app = {};
+    option = null;
+    // Schema:
+    // date,AQIindex,PM2.5,PM10,CO,NO2,SO2
+    // Schema:
+    // date,AQIindex,PM2.5,PM10,CO,NO2,SO2
+
+    var data1 = eval($('.data').text().toString());
+    var data = []
+    for (var i = 0; i < data1.length; i++) {
+        var one_data = [
+            data1[i]['study_at_library_time'],
+            data1[i]['number_of_books'],
+            data1[i]['take_many'],
+            data1[i]['assentiment'],
+            data1[i]['attend_a_party'],
+            data1[i]['attend_a_computition'],
+            data1[i]['qichuangshijian'],
+            data1[i]['shuiiaoshijian'],
+            data1[i]['wanguicishu'],
+            data1[i]['zixishichang'],
+            data1[i]['youxishicahng'],
+            data1[i]['result']
+        ];
+        data.push(one_data)
+    }
+
+    var schema = [
+        {name: 'study_at_library_time', index: 0, text: '图书馆学习时间'},
+        {name: 'number_of_books', index: 1, text: '借书数目'},
+        {name: 'take_many', index: 2, text: '旷课次数'},
+        {name: 'assentiment', index: 3, text: '作业得分'},
+        {name: 'attend_a_party', index: 4, text: '参加协会时间'},
+        {name: 'attend_a_computition', index: 5, text: '参加竞赛次数'},
+        {name: 'up_time', index: 6, text: '起床时间'},
+        {name: 'sleep_time', index: 7, text: '睡觉时间'},
+        {name: 'night_late', index: 8, text: '晚归次数'},
+        {name: 'study_time', index: 9, text: '自习时间'},
+        {name: 'play_games', index: 10, text: '游戏时长'},
+        {name: 'result', index: 11, text: '学习状态'}
+
+    ];
+
+    var lineStyle = {
+        normal: {
+            width: 1,
+            opacity: 0.5
+        }
+    };
+
+    option = {
+        backgroundColor: '#333',
+        legend: {
+            bottom: 30,
+            data: ['学习行为分析'],
+            itemGap: 20,
+            textStyle: {
+                color: '#fff',
+                fontSize: 14
+            }
+        },
+        tooltip: {
+            padding: 10,
+            backgroundColor: '#222',
+            borderColor: '#777',
+            borderWidth: 1,
+            formatter: function (obj) {
+                var value = obj[0].value;
+                return '<div style="border-bottom: 1px solid rgba(255,255,255,.3); font-size: 18px;padding-bottom: 7px;margin-bottom: 7px">'
+                    + obj[0].seriesName + ' ' + value[0] + '图书馆学习时间：'
+                    + value[7]
+                    + '</div>'
+                    + schema[1].text + '：' + value[1] + '<br>'
+                    + schema[2].text + '：' + value[2] + '<br>'
+                    + schema[3].text + '：' + value[3] + '<br>'
+                    + schema[4].text + '：' + value[4] + '<br>'
+                    + schema[5].text + '：' + value[5] + '<br>'
+                    + schema[6].text + '：' + value[6] + '<br>'
+                    + schema[7].text + '：' + value[6] + '<br>'
+                    + schema[8].text + '：' + value[6] + '<br>'
+                    + schema[9].text + '：' + value[6] + '<br>'
+                    + schema[10].text + '：' + value[6] + '<br>'
+                    + schema[11].text + '：' + value[6] + '<br>';
+            }
+        },
+
+        parallelAxis: [
+            {dim: 0, name: schema[0].text},
+            {dim: 1, name: schema[1].text},
+            {dim: 2, name: schema[2].text},
+            {dim: 3, name: schema[3].text},
+            {dim: 4, name: schema[4].text},
+            {dim: 5, name: schema[5].text},
+            {dim: 6, name: schema[6].text},
+            {dim: 7, name: schema[7].text},
+            {dim: 8, name: schema[8].text},
+            {dim: 9, name: schema[9].text},
+            {dim: 10, name: schema[10].text},
+            {
+                dim: 11, name: schema[11].text,
+                type: 'category', data: ['差', '良', '较好', '好', '优']
+            }
+        ],
+        visualMap: {
+            show: true,
+            min: 0,
+            max: 250,
+            right: 20,
+            bottom: 30,
+            dimension: 2,
+            calculable: true,
+            inRange: {
+                color: ['#5fa4cb','#50a3ba'].reverse()
+            },
+            text: ['结果', ''],
+            textGap: 20,
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        parallel: {
+            left: '10%',
+            right: '18%',
+            bottom: 100,
+            parallelAxisDefault: {
+                type: 'value',
+                name: 'AQI指数',
+                nameLocation: 'end',
+                nameGap: 20,
+                nameTextStyle: {
+                    color: '#fff',
+                    fontSize: 12
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: '#aaa'
+                    }
+                },
+                axisTick: {
+                    lineStyle: {
+                        color: '#777'
+                    }
+                },
+                splitLine: {
+                    show: false
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+                }
+            }
+        },
+        series: [
+            {
+                name: '学习行为分析',
+                type: 'parallel',
+                lineStyle: lineStyle,
+                data: data
+            }
+        ]
+    };
+    if (option && typeof option === "object") {
+        myChart.setOption(option, true);
+    }
+</script>
+</body>
+</html>

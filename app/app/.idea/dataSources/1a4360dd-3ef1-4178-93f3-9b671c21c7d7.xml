@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="student@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="student">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="data"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mydb"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="secondarymarket"/>
+    <schema id="9" parent="1" name="secondarymarket2"/>
+    <schema id="10" parent="1" name="shopping"/>
+    <schema id="11" parent="1" name="sys"/>
+    <schema id="12" parent="1" name="test"/>
+    <schema id="13" parent="1" name="test1"/>
+    <table id="14" parent="2" name="feedback"/>
+    <table id="15" parent="2" name="op_record"/>
+    <table id="16" parent="2" name="user_information"/>
+    <table id="17" parent="2" name="user_rights"/>
+    <column id="18" parent="14" name="receive_time">
+      <Position>1</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="14" name="user_name">
+      <Position>2</Position>
+      <DataType>char(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="14" name="gurantee_name">
+      <Position>3</Position>
+      <DataType>char(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="21" parent="14" name="info_type">
+      <Position>4</Position>
+      <DataType>char(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="14" name="info_content">
+      <Position>5</Position>
+      <DataType>char(255)|0</DataType>
+    </column>
+    <index id="23" parent="14" name="FK_re2">
+      <ColNames>user_name</ColNames>
+    </index>
+    <index id="24" parent="14" name="FK_Reference_4">
+      <ColNames>gurantee_name</ColNames>
+    </index>
+    <key id="25" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>receive_time
+user_name
+gurantee_name</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="26" parent="15" name="op_time">
+      <Position>1</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="15" name="user_name">
+      <Position>2</Position>
+      <DataType>char(25)|0</DataType>
+    </column>
+    <column id="28" parent="15" name="op_kind">
+      <Position>3</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="15" name="data_route">
+      <Position>4</Position>
+      <DataType>char(50)|0</DataType>
+    </column>
+    <index id="30" parent="15" name="FK_re3">
+      <ColNames>user_name</ColNames>
+    </index>
+    <key id="31" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>op_time</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="32" parent="16" name="user_name">
+      <Position>1</Position>
+      <DataType>char(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="16" name="user_pass">
+      <Position>2</Position>
+      <DataType>char(15)|0</DataType>
+    </column>
+    <column id="34" parent="16" name="name">
+      <Position>3</Position>
+      <DataType>char(20)|0</DataType>
+    </column>
+    <column id="35" parent="16" name="phone">
+      <Position>4</Position>
+      <DataType>char(11)|0</DataType>
+    </column>
+    <column id="36" parent="16" name="e_mail">
+      <Position>5</Position>
+      <DataType>char(25)|0</DataType>
+    </column>
+    <key id="37" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_name</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="38" parent="17" name="user_name">
+      <Position>1</Position>
+      <DataType>char(25)|0</DataType>
+    </column>
+    <column id="39" parent="17" name="user_rights">
+      <Position>2</Position>
+      <DataType>char(15)|0</DataType>
+    </column>
+    <index id="40" parent="17" name="FK_re1">
+      <ColNames>user_name</ColNames>
+    </index>
+  </database-model>
+</dataSource>

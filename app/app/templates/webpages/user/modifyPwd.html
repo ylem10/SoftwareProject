@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/public/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user/login_resign.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/fonts/iconfont.css') }}">
+    <style>
+         ul li {
+            position: relative;
+        }
+
+        li a {
+            color: #F44336;
+            position: absolute;
+            bottom: -16px;
+            left: 44px;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="particles">
+    <div class="wrap">
+        <form>
+            <h1>修改密码</h1>
+            <ul>
+                <li>
+                    <span class="iconfont icon-name">&nbsp;&nbsp;</span>
+                    <input class="password1" type="password" placeholder="请输入密码">
+                    <a></a>
+                </li>
+                <li>
+                    <span class="iconfont icon-mima">&nbsp;&nbsp;</span>
+                    <input class="password2" type="password" placeholder="请再次输入密码">
+                    <a></a>
+                </li>
+                <li>
+                    <input type="submit" value="修&nbsp;改" class="submit">
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='lib/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/js/jquery.particleground.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/js/demo.js') }}"></script>
+<script src="{{ url_for('static', filename="js/user/modifyPwd.js") }}"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>用户信息</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forum/forum.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user/userInfo.css') }}">
+</head>
+<body>
+<div id="header">
+    <div class="left">
+        <a href="/">首页</a>
+        {% if username %}
+            <a href="/user/outlogin">退出登录</a>
+        {% else %}
+            <a href="/user/outlogin">登录</a>
+        {% endif %}
+        <a href="/user/info" class="username">{{ username }}</a>
+    </div>
+    <div class="right">
+        <a href="/forum/gotoForum">用户论坛</a>
+        <a href="/user/goFeedback">意见反馈</a>
+        <a href="#">帮助</a>
+    </div>
+</div>
+<div class="middle">
+    <div class="info_top">
+        <ul class="pr_if">
+        <li><div class="text">个人资料</div></li>
+        </ul>
+    </div>
+    <form action="" method="post">
+        <div class="info">
+            <p><label>用户名：</label><input disabled type="text" class="shuru disabied" value="{{ data[0] }}"/></p>
+            <p><label>密码：</label><input disabled type="password" class="shuru1 disabied" value="{{ data[1] }}"></p>
+            <p><label>昵称：</label><input type="text" class="shuru1 Nick_name" value="{{ data[2] }}"/></p>
+            <p><label>邮箱：</label><input type="text" class="shuru1 Email" value="{{ data[3] }}"/></p>
+            <p><label>手机号：</label><input disabled type="text" class="shuru disabied" value="{{ data[4] }}"/></p>
+            <input type="submit" class="input" value="保存"/>
+        </div>
+        <div class="hh">
+            <img src="../../../static/images/{{ data[5] }}" class="img">
+            <p><label class="head">修改头像</label></p>
+        </div>
+    </form>
+</div>
+<script src="{{ url_for('static', filename='lib/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user/modifyUserInfo.js') }}"></script>
+</body>
+</html>
+
+
+

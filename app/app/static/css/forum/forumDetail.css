@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 12px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    line-height: 22px;
+    background: #f3f3f3;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    background: #333333 !important;
+    width: 100%;
+    box-shadow: 0px 3px 5px #aaa;
+    box-sizing: border-box;
+    z-index: 100001;
+}
+
+#header .left {
+    width: 300px;
+    height: 100%;
+    float: left;
+    /*border: 1px solid salmon;*/
+    margin-left: 50px;
+    line-height: 40px;
+}
+
+#header a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    margin: 10px;
+}
+
+#header .right {
+    margin-right: 50px;
+    width: 262px;
+    height: 20px !important;
+    float: right;
+    padding: 10px;
+    background: #333333 !important;
+    /*border: 1px solid salmon;*/
+}
+
+.wrapper {
+    width: 980px;
+    margin: 40px auto;
+    padding: 20px 0;
+    border-right: #E5E5E5;
+    /*height: 1480px;*/
+    /*background-color: #e5e5e5;*/
+}
+
+.head .skip {
+    padding: 10px 0;
+}
+
+.wrapper .content {
+
+}
+
+.content #title {
+    height: 56px;
+    background-color: #ffffff;
+    line-height: 56px;
+    /*z-index: 5;*/
+    /*position: relative;*/
+    border-left: 1px solid #E5E5E5;
+    border-bottom: 1px solid #BBBDBF;
+}
+
+#title .title_txt {
+    float: left;
+    display: inline;
+    font-family: "Microsoft Yahei", STHeiti, Arial, SimSun;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 20px;
+}
+
+#title #core_btn {
+    float: right;
+
+}
+
+#core_btn #core_btn_reply {
+    font-size: 14px;
+    transition: all 0.3s;
+    width: 68px;
+    border: 1px solid #E5E5E5;
+    border-radius: 3px;
+    padding: 4px 10px;
+    background: #f7f8fa;
+    margin-right: 20px;
+    box-sizing: border-box;
+
+}
+
+#core_btn_reply:hover {
+    cursor: pointer;
+    background: #e5e5e5;
+}
+
+#post_list .host {
+    height: 420px;
+    border-left: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E1E4E6;
+    background: #fafbfc;
+}
+
+.left {
+    width: 240px;
+    height: 300px;
+    /*border:1px solid black;*/
+    float: left;
+}
+
+.left .left_img {
+    border: 1px solid #E5E5E5;
+    padding: 5px;
+    height: 120px;
+    width: 120px;
+    margin-left: 54px;
+    margin-top: 40px;
+
+}
+
+.left img {
+    height: 120px;
+    width: 120px;
+
+}
+
+.left .name {
+    color: #F60;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.right {
+    background: #ffffff;
+    height: 420px;
+    float: left;
+    width: 736px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.right .content_show {
+    height: 390px;
+}
+
+.right .time_show {
+    float: right;
+
+    margin-right: 15px;
+}
+
+#post_list .comment {
+    height: 420px;
+    border-left: 1px solid #E5E5E5;
+    border-bottom: 1px solid #E1E4E6;
+    background: #fafbfc;
+}
+
+.footer {
+    height: 480px;
+    background: #F5F7FA;
+
+}
+
+.footer .skip {
+    padding: 20px 0;
+}
+
+.skip {
+
+    height: 24px;
+    background: #f7f8fa;
+    border-bottom: 1px solid #E5E5E5;
+    border-top: 1px solid #E5E5E5;
+}
+
+.skip .page {
+    margin-left: 15px;
+    width: 840px;
+    float: left;
+}
+
+.skip .return {
+    width: 102px;
+    float: left;
+}
+
+.page ul {
+    list-style: none;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: #333;
+}
+
+.page .post_num {
+    float: left;
+    line-height: 24px;
+    height: 24px;
+}
+
+.post_num li {
+    float: left;
+}
+
+.page_num span, .page_num a {
+    height: 22px;
+    line-height: 22px;
+    border: 1px solid #e7ecf0;
+    margin-right: 5px;
+    padding: 2px 8px;
+    text-align: center;
+    overflow: hidden;
+    color: #2d64b3;
+    background: none repeat scroll 0 0 #fff;
+    cursor: pointer;
+}
+
+.page_num .tp {
+    color: #000;
+    font-weight: 700;
+    margin-right: 5px;
+    border: none;
+    background: #f7f8fa;
+}
+
+.reply_num .input-txt {
+    width: 40px;
+}
+
+.reply_num .red {
+    color: #F60;
+}
+
+.reply_num .jump_btn {
+    width: 45px;
+    text-decoration: none;
+    background: #e7ecf0;
+    border-radius: 2px;
+    border: 1px solid #aaa;
+    cursor: pointer;
+    height: 20px;
+}
+
+.return a {
+    color: #2d64b3;
+}
+
+.answer {
+    height: 60px;
+}
+
+.answer .answer_txt {
+    margin-left: 130px;
+    font-size: 16px;
+    line-height: 70px;
+    font-family: "Microsoft Yahei", STHeiti, Arial, SimSun;
+    font-weight: 400;
+}
+
+.container {
+    height: 260px;
+    margin-left: 130px;
+
+    width: 600px;
+    padding: 0 14px 14px;
+    border: 1px solid #dfdfdf;
+    background: #fafafa;
+}
+
+.sub_container .toolbar {
+    position: relative;
+    width: auto;
+    height: 46px;
+    background-color: #fafafa;
+}
+
+.toolbar .tool_img {
+    height: 26px;
+    margin-top: 10px;
+    margin-right: 6px;
+    width: 26px;
+    float: left;
+}
+
+.tool_a {
+    padding-top: 10px;
+    font-size: 14px;
+
+}
+
+.toolbar a {
+    color: #1c81e5;
+}
+
+.sub_container .con_body {
+    border: 1px solid #ccc;
+    border-left-color: #9a9a9a;
+    border-top-color: #9a9a9a;
+    height: 212px;
+
+    background-color: #ffffff;
+}
+
+.con_body .body_txt {
+    height: 212px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 598px;
+    border: 0;
+    padding: 5px;
+}
+
+.g-input {
+
+    /*margin-top: 20px;*/
+    width: 500px;
+    height: 240px;
+    border: 0.5px solid #e5e5e5;
+    padding: 6px 10px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.upload {
+
+    background-color: #1c81e5;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s;
+    width: 70px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    padding: 6px 10px;
+    margin-left: 130px;
+    margin-top: 28px;
+    box-sizing: border-box;
+}
+
+.upload:hover {
+    background: #0078f3;
+    cursor: pointer;
+}
+
+#footer {
+    background: #2c3c55;
+    height: 46px;
+    width: 100%;
+}
+
+#footer > p {
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.return_top {
+    display: block;
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    line-height: 25px;
+    text-align: center;
+    font-size: 15px;
+    background: #ff6600;
+    right: 0;
+    bottom: 20px;
+    cursor: pointer;
+    color: #fff;
+    background: #00000040;
+}

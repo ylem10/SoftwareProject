@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/public/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user/login_resign.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='components/css/component.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='components/fonts/iconfont.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/fonts/iconfont.css') }}">
+    <style>
+        ul li {
+            position: relative;
+        }
+
+        li a {
+            color: #F44336;
+            position: absolute;
+            bottom: -16px;
+            left: 44px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div id="particles">
+    <div class="wrap">
+        <form>
+            <h1>注册</h1>
+            <ul>
+                <li>
+                    <span class="iconfont icon-name">&nbsp;&nbsp;</span>
+                    <input class="username" type="text" placeholder="用户名" required>
+                    <a></a>
+                </li>
+                <li>
+                    <span class="iconfont icon-telephone">&nbsp;&nbsp;</span>
+                    <input class="cellphone" type="text" placeholder="手机" required>
+                    <a></a>
+                </li>
+                <li>
+                <li>
+                    <span class="iconfont icon-mima">&nbsp;&nbsp;</span>
+                    <input class="password1" type="password" placeholder="密码" required>
+                    <a></a>
+                <li>
+                    <span class="iconfont icon-mima">&nbsp;&nbsp;</span>
+                    <input class="password2" type="password" placeholder="确认密码" required>
+                    <a></a>
+                </li>
+                </li>
+                <li>
+                    <input type="submit" class="submit" value="确认注册">
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='lib/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='components/js/component.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/js/jquery.particleground.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/js/demo.js') }}"></script>
+<script>
+    $(function () {
+        checkUsername();
+        checkphone();
+        checkPwd();
+        formSubmit();
+    });
+
+
+    //验证用户名
+    function checkUsernameByNormal(root) {
+        var username = $('.username').val();
+        if (isNaN(username)) {
+            root.css({
+                "border-bottom": "1px solid #48aecb",
+                "background-color": " #fff"
+            });
+            root.next().text('');
+            return true;
+        } else if (username == '') {
+            root.next().text('用户名不能为空！');
+            root.css({
+                "border-bottom": "1px solid #f75234",
+                "background-color": "#fdf6f5",
+                "transition": 'border .8s'
+            });
+            return false;
+        } else {
+            root.next().text('用户名不能为纯数字！');
+            root.css({
+                "border-bottom": "1px solid #f75234",
+                "background-color": "#fdf6f5",
+                "transition": 'border .8s'
+            });
+            return false;
+        }
+    }
+
+
+    //为检验用户名提供blur事件
+    function checkUsername() {
+        $('.username').blur(function () {
+            checkUsernameByNormal($(this));
+        });
+    }
+
+
+    //手机号检验
+    function checkPhoneByNormal(root) {
+        //alert(phoneRegex.test(phone));
+        var phone = $('.cellphone').val();
+        var phoneRegex = /^1[34578]\d{9}$/;
+        if (phoneRegex.test(phone)) {
+            root.css({
+                "border-bottom": "1px solid #48aecb",
+                "background-color": " #fff"
+            });
+            root.next().text('');
+            return true;
+        } else {
+            root.next().text('请输入正确的11位手机号！');
+            root.css({
+                "border-bottom": "1px solid #f75234",
+                "background-color": "#fdf6f5",
+                "transition": 'border .8s'
+            });
+            return false;
+        }
+    }
+
+
+    //手机号blur事件
+    function checkphone() {
+        $('.cellphone').blur(function () {
+            checkPhoneByNormal($(this));
+        });
+    }
+
+    //密码长度检验
+    function checkPwdByNormal(root) {
+        var pass = root.val();
+        if (pass == "") {
+            root.next().text('密码不能为空！');
+            root.css({
+                "border-bottom": "1px solid #f75234",
+                "background-color": "#fdf6f5",
+                "transition": 'border .8s'
+            });
+            return false;
+        } else if (pass.length > 12) {
+            root.next().text('密码长度不能大于12位！');
+            root.css({
+                "border-bottom": "1px solid #f75234",
+                "background-color": "#fdf6f5",
+                "transition": 'border .8s'
+            });
+            return false;
+        } else if (pass.length < 6) {
+            root.next().text('密码长度不能小于6位！！');
+            root.css({
+                "border-bottom": "1px solid #f75234",
+                "background-color": "#fdf6f5",
+                "transition": 'border .8s'
+            });
+            return false;
+        } else {
+            root.css({
+                "border-bottom": "1px solid #48aecb",
+                "background-color": " #fff"
+            });
+            root.next().text('');
+            return true;
+        }
+
+
+    }
+
+    function checkPwd2(root) {
+        var pass1 = $('.password1').val();
+        var pass2 = $('.password2').val();
+        if (pass1 != pass2) {
+            root.next().text('两次输入的密码不一致！');
+            root.css({
+                "border-bottom": "1px solid #f75234",
+                "background-color": "#fdf6f5",
+                "transition": 'border .8s'
+            });
+            return false;
+        } else {
+            root.css({
+                "border-bottom": "1px solid #48aecb",
+                "background-color": " #fff"
+            });
+            root.next().text('');
+            return true;
+        }
+    }
+
+    //密码blur事件
+    function checkPwd() {
+        $('.password1').blur(function () {
+            checkPwdByNormal($(this));
+        });
+        $('.password2').blur(function () {
+            checkPwdByNormal($(this));
+            //继续判断两个密码是否一样
+            checkPwd2($(this));
+        });
+    }
+
+
+    //表单提交事件
+    function formSubmit() {
+        $('.submit').click(function () {
+            //首先进行表单的校验
+            var checkName = checkUsernameByNormal($('.username'));
+            var checkPhone = checkPhoneByNormal($('.cellphone'));
+            var checkpwD1 = checkPwdByNormal($('.password1'));
+            var checkPwd2_1 = checkPwdByNormal($('.password2'));
+            var checkPwd2_2 = checkPwd2($('.password2'));
+            var data = {
+                data: JSON.stringify({
+                    'username': $('.username').val(),
+                    'phone': $('.cellphone').val(),
+                    'password': $('.password1').val()
+                })
+            };
+            if (checkName && checkPhone && checkpwD1 && checkPwd2_1 && checkPwd2_2) {
+                //表单验证通过时
+                $.ajax({
+                    url: '/user/register',
+                    type: 'POST',
+                    data: data,
+                    dataType: 'json',
+                    success: function (res) {
+                        res = eval(res)
+                        console.log(res.ok);
+                        if (res.ok == false) {
+                            $.Myalert({
+                                type: 'wanning', //消息类型
+                                value: '用户名已存在!', //消息内容
+                                speed: '0.3', //滑动速度（以秒为单位）
+                            });
+                        } else {
+                            $.Myalert({
+                                type: 'success', //消息类型
+                                value: '注册成功!', //消息内容
+                                speed: '0.3', //滑动速度（以秒为单位）
+                                confirm:function () {
+                                    window.location.replace("/user/login");
+                                }
+                            });
+                        }
+                    }
+                })
+            }
+            return false;
+        })
+    }
+</script>
+</body>
+</html>

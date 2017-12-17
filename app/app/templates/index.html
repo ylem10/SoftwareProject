@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+<div id="header">
+    <div class="left">
+        <a href="/user/register">注册</a>
+        {% if username %}
+            <a href="/user/outlogin">退出登录</a>
+        {% else %}
+            <a href="/user/login">登录</a>
+        {% endif %}
+        <a href="/user/info">{{ username }}</a>
+    </div>
+    <div class="right">
+        <a href="/forum/gotoForum">用户论坛</a>
+        <a href="/user/goFeedback">意见反馈</a>
+        <a href="#">帮助</a>
+    </div>
+</div>
+<div id="content">
+    <div id="content_1">
+        <div id="title">
+            {#            <img src="{{ url_for('static', filename='images/logo.png') }}">#}
+            <!--<p>学习行为分析</p>-->
+        </div>
+        <div id="data">
+            <p>学习行为分析</p>
+            <div class="data_analyze">
+                <a href="{{ url_for('static', filename='EXCL/data/download.xls') }}">点击此处下载</a>
+            </div>
+            <div id="uploadImage">
+            <div class="uploadCom">
+                <div class="preview">
+                    {% if pic: %}
+                      <img src="../../../static/images/{{ pic }}">
+                    {% endif %}
+                </div>
+                <input type="button" class="edit submit" value="点此处提交">
+                <input type="button" style="display: none" class="edit result" value="查看结果">
+                <form id='myupload' action='/upload' method='post' enctype='multipart/form-data'>
+                    <input id="fileupload" class="file" type="file" name="mypic">
+                    <input class="uploadPic" type="button" value="选择文件">
+                </form>
+            </div>
+        </div>
+            <div class="data_left">
+                <div class="center_button_left">
+                    开
+                </div>
+            </div>
+            <div class="data_right">
+                <div class="center_button_right">
+                    启
+                </div>
+            </div>
+        </div>
+        <div id="describe">
+            <div id="sub_title"><h2>Why you'll need this</h2></div>
+            <div id="describe_top">
+                <div class="left"><img src="{{ url_for('static', filename='images/5.jpg') }}"></div>
+                <div class="right">
+                    <h3>背景</h3>
+                    <p>基于庞大数据采集不够深入，数据没有进行可视化，不利于发现隐藏信息。<a href="#"> 学习分析技术</a>是对学习者生成的教育大数据的解释和分析，以评估学习者的学习进展，预测未来表现，并发现潜在问题
+                    </p>
+                </div>
+            </div>
+            <div id="describe_bottom">
+                <div class="left"><img src="{{ url_for('static', filename='images/6.jpg') }}"></div>
+                <div class="right">
+                    <h3>项目意义</h3>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;通过对学生行为的分析/系统演示将数据进行可视化进一步得出结论,可以对教育方式、教育方法具有极大的参考价值,基于数据分析规律的精准治理,预测新时代教育方式应往哪些方面转变,新时代学生的学习方法存在哪些亟待解决的问题,存在哪些值得推行的方法通过对学生行为的分析/系统演示将数据进行可视化进一步得出结论,可以对教育方式、教育方法具有极大的参考价值,基于数据分析规律的精准治理,预测新时代教育方式应往哪些方面转变,新时代学生的学习方法存在哪些亟待解决的问题,存在哪些值得推行的方法
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <p>Copyright © 2017, Jimei,University </p>
+</div>
+<script src="{{ url_for('static', filename='lib/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forum/forum.css') }}">
+</head>
+<body>
+<div id="header">
+    <div class="left">
+        <a href="/">首页</a>
+        {% if username %}
+            <a href="/user/login">退出登录</a>
+        {% else %}
+            <a href="/user/login">登录</a>
+        {% endif %}
+        <a href="/user/info" class="username">{{ username }}</a>
+    </div>
+    <div class="right">
+        <a href="/forum/gotoForum">用户论坛</a>
+        <a href="/user/goFeedback">意见反馈</a>
+        <a href="#">帮助</a>
+    </div>
+</div>
+<div class="wrap">
+    <div class="wrap_top">
+        <input class="addForum" type="text" placeholder="说点什么吧！"/>
+        <span>图标</span>
+        <span>图标</span>
+    </div>
+    <div class="wrap_middle">
+        <div class="middle_top">
+            <div>
+                <a>全部动态</a>
+                <span>图标</span>
+            </div>
+            <div>
+                <span>图标</span>
+                <span>图标</span>
+            </div>
+        </div>
+        {% for com in getForum: %}
+            <div class="forum_list">
+                <a class="post_id" style="display: none">{{ com['post_id'] }}</a>
+                <div class="list_top">
+                    <div class="top_left">
+                        <div class="img"></div>
+                        <span class="poster_name">{{ com['user_login_name'] }}</span><br>
+                        <span>{{ com['post_time'] }}</span>
+                    </div>
+                    {% if username==com['user_login_name']: %}
+                        <span class="deleteForum">删除</span>
+                        <span class="edit">编辑</span>
+                    {% endif %}
+
+                </div>
+                <div class="list_content">
+                    <div class="content_top">
+                        {{ com['post_title'] }}
+                    </div>
+                    <div class="content_bottom">
+                        <a>浏览</a>
+                        <div>
+                            {#                            <span>图标</span>#}
+                            {#                            <span>图标</span>#}
+                            {#                            <span>图标</span>#}
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <input type="text" placeholder="评论">
+                    <span>拍照</span>
+                </div>
+                <div class="comment_list">
+                    <ul>
+                        {% for comm in getComment: %}
+                            {% if  comm['comt_commenter']!=None and comm['post_id']==com['post_id']: %}
+                                <li><a class="comm_id" style="display: none;">{{ comm['comt_id'] }}</a><span
+                                        class="feedback"><a>{{ comm['comt_commenter'] }}</a>&nbsp;回复&nbsp;<a>{{ com['user_login_name'] }}</a>：{{ comm['comt_content'] }}</span>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+<div class="wrap_bottom">
+
+</div>
+</div>
+<div id="footer">
+    <p>Copyright © 2017, Jimei,University </p>
+</div>
+<script src="{{ url_for('static', filename='lib/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/forum/forum.js') }}"></script>
+</body>
+</html>

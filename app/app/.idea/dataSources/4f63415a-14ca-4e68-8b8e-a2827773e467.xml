@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="student1@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="student1">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="data"/>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="mydb"/>
+    <schema id="6" parent="1" name="mysql"/>
+    <schema id="7" parent="1" name="performance_schema"/>
+    <schema id="8" parent="1" name="secondarymarket"/>
+    <schema id="9" parent="1" name="secondarymarket2"/>
+    <schema id="10" parent="1" name="shopping"/>
+    <schema id="11" parent="1" name="student"/>
+    <schema id="12" parent="1" name="sys"/>
+    <schema id="13" parent="1" name="test"/>
+    <schema id="14" parent="1" name="test1"/>
+    <table id="15" parent="2" name="table_comment"/>
+    <table id="16" parent="2" name="table_feedback"/>
+    <table id="17" parent="2" name="table_op_record"/>
+    <table id="18" parent="2" name="table_picture"/>
+    <table id="19" parent="2" name="table_poster"/>
+    <table id="20" parent="2" name="table_user_info"/>
+    <table id="21" parent="2" name="table_user_rights"/>
+    <column id="22" parent="15" name="comt_id">
+      <Position>1</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="15" name="comt_commenter">
+      <Position>2</Position>
+      <DataType>char(25)|0</DataType>
+    </column>
+    <column id="24" parent="15" name="comt_post_id">
+      <Position>3</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="25" parent="15" name="comt_time">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="26" parent="15" name="comt_content">
+      <Position>5</Position>
+      <DataType>varchar(2000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="27" parent="15" name="comt_commenter">
+      <ColNames>comt_commenter</ColNames>
+    </index>
+    <index id="28" parent="15" name="comt_post_id">
+      <ColNames>comt_post_id</ColNames>
+    </index>
+    <key id="29" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>comt_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="30" parent="16" name="fbk_receive_time">
+      <Position>1</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="16" name="fbk_sender">
+      <Position>2</Position>
+      <DataType>char(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="32" parent="16" name="fbk_recipient">
+      <Position>3</Position>
+      <DataType>char(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="16" name="fbk_info_type">
+      <Position>4</Position>
+      <DataType>char(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="16" name="fbk_info_content">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="35" parent="16" name="fbk_recipient">
+      <ColNames>fbk_recipient</ColNames>
+    </index>
+    <index id="36" parent="16" name="fbk_sender">
+      <ColNames>fbk_sender</ColNames>
+    </index>
+    <key id="37" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fbk_receive_time
+fbk_sender
+fbk_recipient</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="38" parent="17" name="opt_time">
+      <Position>1</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="17" name="user_login_name">
+      <Position>2</Position>
+      <DataType>char(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="17" name="opt_type">
+      <Position>3</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="17" name="opt_data_route">
+      <Position>4</Position>
+      <DataType>char(50)|0</DataType>
+    </column>
+    <index id="42" parent="17" name="user_login_name">
+      <ColNames>user_login_name</ColNames>
+    </index>
+    <key id="43" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>opt_time
+user_login_name</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="44" parent="18" name="pic_id">
+      <Position>1</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="45" parent="18" name="pic_route">
+      <Position>2</Position>
+      <DataType>char(50)|0</DataType>
+    </column>
+    <column id="46" parent="19" name="post_id">
+      <Position>1</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="19" name="post_user">
+      <Position>2</Position>
+      <DataType>char(25)|0</DataType>
+    </column>
+    <column id="48" parent="19" name="post_time">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="49" parent="19" name="post_content">
+      <Position>4</Position>
+      <DataType>varchar(5000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="19" name="post_title">
+      <Position>5</Position>
+      <DataType>char(80)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="19" name="post_type">
+      <Position>6</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="52" parent="19" name="post_user">
+      <ColNames>post_user</ColNames>
+    </index>
+    <key id="53" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>post_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="54" parent="20" name="user_login_name">
+      <Position>1</Position>
+      <DataType>char(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="20" name="user_pwd">
+      <Position>2</Position>
+      <DataType>char(15)|0</DataType>
+    </column>
+    <column id="56" parent="20" name="user_Nick_name">
+      <Position>3</Position>
+      <DataType>char(20)|0</DataType>
+    </column>
+    <column id="57" parent="20" name="user_phone">
+      <Position>4</Position>
+      <DataType>char(11)|0</DataType>
+    </column>
+    <column id="58" parent="20" name="user_Email">
+      <Position>5</Position>
+      <DataType>char(25)|0</DataType>
+    </column>
+    <index id="59" parent="20" name="user_phone">
+      <ColNames>user_phone</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="60" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_login_name</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="61" parent="20" name="user_phone">
+      <ColNames>user_phone</ColNames>
+      <UnderlyingIndexName>user_phone</UnderlyingIndexName>
+    </key>
+    <column id="62" parent="21" name="user_login_name">
+      <Position>1</Position>
+      <DataType>char(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="21" name="user_status">
+      <Position>2</Position>
+      <DataType>char(15)|0</DataType>
+    </column>
+    <key id="64" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_login_name</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

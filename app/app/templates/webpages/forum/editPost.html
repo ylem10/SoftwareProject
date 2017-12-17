@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发表文章</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forum/editPost.css') }}">
+    <style>
+        .uploadCom {
+            position: relative;
+            padding: 10px 0;
+        }
+
+        .uploadCom form {
+            position: relative;
+        }
+
+        .file, .uploadPic {
+            position: absolute;
+            left: 130px;
+            top: -30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .file {
+            width: 100px;
+            opacity: 0;
+            z-index: 2;
+        }
+
+        .uploadPic {
+            width: 100px;
+            z-index: 1;
+            background: #ffffff !important;
+            color: #000 !important;
+            border-radius: 0 !important;
+            font-size: 14px !important;
+            border: 1px solid #bfcbd9 !important;
+        }
+
+        .preview {
+            position: relative;
+        }
+
+        .preview > a {
+            font-size: 14px;
+            display: block;
+        }
+
+        .preview img {
+            height: 100px;
+            -webkit-transition: height .8s;
+            -moz-transition: height .8s;
+            -ms-transition: height .8s;
+            -o-transition: height .8s;
+            transition: height .8s;
+        }
+
+        .preview img:hover {
+            height: 200px;
+        }
+
+        .uploadCom .edit {
+            margin-top: 10px;
+            margin-left: 240px;
+            height: 30px;
+            width: 100px;
+            outline: none;
+            color: #fff;
+            border: 1px solid #eee;
+        }
+
+        .uploadCom .submit {
+            background: #2d8cf0;
+        }
+
+        .uploadCom .cancel {
+            background: #ffa415;
+        }
+    </style>
+</head>
+<body>
+<span>{{ post }}</span>
+<div id="header">
+    <div class="left">
+        <a href="/">首页</a>
+        {% if username %}
+            <a href="/user/login">退出登录</a>
+        {% else %}
+            <a href="/user/login">登录</a>
+        {% endif %}
+        <a href="/user/info" class="username">{{ username }}</a>
+    </div>
+    <div class="right">
+        <a href="/forum/gotoForum">用户论坛</a>
+        <a href="#">意见反馈</a>
+        <a href="#">帮助</a>
+    </div>
+</div>
+<div id="head">
+    <div class="text">写文章</div>
+    <div>
+        <input type="submit" class="upload" value="发布">
+        <input type="submit" class="modify" value="修改">
+    </div>
+</div>
+<div id="main">
+    <div id="sub_main">
+        <div id="title_1">
+            <input id="title" type="text" class="g-input title" placeholder="请填写标题" maxlength="30" value="{{ post_title }}">
+            <span></span>
+        </div>
+        <div class="content">
+            <textarea id="pag" type="text" class="g-input pag" placeholder="正文" maxlength="800">{{ post_content }}</textarea>
+            <span></span>
+        </div>
+        <div id="uploadImage">
+            <div class="uploadCom">
+                <div class="preview">
+                    {% if pic: %}
+                      <img src="../../../static/images/{{ pic }}">
+                    {% endif %}
+                </div>
+                <input type="button" class="edit submit" value="点此处提交">
+                <form id='myupload' action='/upload' method='post' enctype='multipart/form-data'>
+                    <input id="fileupload" class="file" type="file" name="mypic">
+                    <input class="uploadPic" type="button" value="选择文件">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='lib/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/js/jquery.form.js') }}"></script>
+<script src="{{ url_for('static', filename='js/fileUpload.js') }}"></script>
+<script src="{{ url_for('static', filename='js/forum/editPost.js') }}"></script>
+</body>
+</html>

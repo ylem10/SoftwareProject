@@ -1,0 +1,113 @@
+body {
+    margin: 0px;
+    background: #fff;
+}
+
+html {
+    background: #fff;
+}
+
+.middle {
+    height: 530px;
+    padding: 0 5px;
+}
+
+.info_top {
+    height: 50px;
+    border-bottom: 1px solid #eee;
+}
+
+li {
+    list-style: none;
+    padding-top: 5px;
+}
+
+form {
+    padding: 20px 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+p {
+    margin-top: 28px;
+}
+
+.shuru, .shuru1 {
+    width: 340px;
+    height: 35px;
+    outline: none;
+    border: 1px solid #e1dfdb;
+    padding: 3px;
+    border-radius: 4px;
+    background-color: #f5f5f3;
+    margin-left: 10px;
+    -webkit-transition: border .5s;
+    -moz-transition: border .5s;
+    -ms-transition: border .5s;
+    -o-transition: border .5s;
+    transition: border .5s;
+}
+
+.shuru:focus, .shuru1:focus {
+    border: 1px solid cornflowerblue;
+    background: #e1dfdb;
+}
+
+.shuru1 {
+    margin-left: 26px;
+}
+
+.input {
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    background: #257bbf;
+    color: #FFF;
+    font-size: 18px;
+    margin-top: 24px;
+    margin-left: 170px;
+    border-radius: 4px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+}
+
+.hh {
+    margin-top: 30px;
+}
+
+.hh p {
+    margin-top: 2px;
+    text-align: center;
+
+}
+
+.img {
+    width: 250px;
+    height: 250px;
+}
+
+label {
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1125px) {
+    body {
+        width: 1125px;
+    }
+}
+
+.info_top li .text {
+    float: left;
+    font-size: 26px;
+    color: #aaaaaa;
+    margin-left: 60px;
+    letter-spacing: 10px;
+    font-family: "PingFang-SC-Medium", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
+}
+
+
+.disabied{
+    background: #eef1f6;
+    border: 1px solid #ddd !important;
+    cursor: url(../../images/cursor.png), auto !important;
+}

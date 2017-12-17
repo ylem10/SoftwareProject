@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/public/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user/login_resign.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/fonts/iconfont.css') }}">
+    <style>
+        .sms .sendSms {
+            height: 42px;
+            border: 1px solid #11c6ce;
+            margin-left: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            -webkit-transition: background .5s;
+            -moz-transition: background .5s;
+            -ms-transition: background .5s;
+            -o-transition: background .5s;
+            transition: background .5s;
+        }
+
+        .sms .sendSms:hover {
+            background: #11c6ce2b;
+        }
+
+        .sendSms .unable {
+            background: #eef1f6;
+            border: 1px solid #ddd !important;
+        }
+
+        ul li {
+            position: relative;
+        }
+
+        li a {
+            color: #F44336;
+            position: absolute;
+            bottom: -18px;
+            left: 44px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+<div id="particles">
+    <div class="wrap">
+        <form>
+            <h1>忘记密码</h1>
+            <ul>
+                <li>
+                    <span class="iconfont icon-name">&nbsp;&nbsp;</span>
+                    <input class="cellPhone" type="text" placeholder="手机号" name="cellphone">
+                    <a></a>
+                </li>
+
+                <li class="sms">
+                    <span class="iconfont icon-mima">&nbsp;&nbsp;</span>
+                    <input class="SmsCode" type="text" placeholder="短信验证码" style="width: 250px"
+                           name="smsNumber unable"><input
+                        class="sendSms" style="width: 120px" type="button" value="发送验证码">
+                    <a></a>
+                </li>
+                <li>
+                    <input type="submit" value="确&nbsp;定" class="submit">
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='lib/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/js/jquery.particleground.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/js/demo.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user/sendSms.js') }}"></script>
+</body>
+</html>

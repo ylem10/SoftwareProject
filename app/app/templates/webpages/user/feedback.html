@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>意见反馈</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user/feedback.css') }}">
+</head>
+<body>
+<div id="header">
+    <div class="left">
+        <a href="/user/register">注册</a>
+        {% if username %}
+            <a href="/user/outlogin">退出登录</a>
+        {% else %}
+            <a href="/user/login">登录</a>
+        {% endif %}
+        <a href="/user/info" class="username">{{ username }}</a>
+    </div>
+    <div class="right">
+        <a href="/forum/gotoForum">用户论坛</a>
+        <a href="/user/goFeedback">意见反馈</a>
+        <a href="#">帮助</a>
+    </div>
+</div>
+<p class="feedback_title">意见反馈</p>
+<div class="middle">
+    <textarea class="shuru feedback_content"></textarea>
+    <span></span>
+    <form>
+        <input type="submit" class="sub">
+    </form>
+</div>
+<div id="footer">
+    <p>Copyright © 2017, Jimei,University </p>
+</div>
+<script src="{{ url_for('static', filename='lib/js/jquery-3.1.1.min.js') }}"></script>
+<script>
+    $(function () {
+        checkFeedbackBlur();
+        formSubmit();
+    });
+
+    //意见反馈非空验证
+    function checkFeedbackByNormal(root) {
+        var feedback_context = root.val();
+        if (feedback_context == "") {
+            root.next().text('请输入反馈信息');
+            root.css({
+                "border": "1px solid #f75234",
+                "background-color": "#fdf6f5",
+                "transition": 'border .8s'
+            });
+            return false;
+        } else {
+            root.css({
+                "border": "1px solid #48aecb",
+                "background-color": " #fff"
+            });
+            root.next().text('');
+            return true;
+        }
+    }
+
+    //blur校验
+    function checkFeedbackBlur() {
+        $('.feedback_content').blur(function () {
+            checkFeedbackByNormal($(this));
+        })
+    }
+
+
+    //提交
+    function formSubmit() {
+        $('.sub').click(function () {
+            if (checkFeedbackByNormal($(this).parent().prev().prev())) {
+                var data = {
+                    data: JSON.stringify({
+                        'feedback_context': $(this).parent().prev().prev().val()
+                    })
+                };
+                //发送ajax
+                $.ajax({
+                    url: '/user/feedback',
+                    type: 'POST',
+                    data: data,
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res.ok == true) {
+                            alert("反馈成功！");
+                            $('.feedback_content').val('');
+                        } else if (res.ok == false) {
+                            alert('反馈失败！')
+                        } else {
+                            alert('您还未登录！')
+                        }
+                    }
+                })
+            }
+            return false;
+        })
+    }
+</script>
+</body>
+</html>

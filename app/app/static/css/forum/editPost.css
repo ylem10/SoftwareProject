@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+
+#head {
+    height: 50px;
+    border-bottom: 1px solid #eee;
+}
+
+#head .text {
+    float: left;
+    font-size: 26px;
+    color: #aaaaaa;
+    margin-left: 60px;
+    letter-spacing: 10px;
+    margin-top: 6px;
+    font-family: "PingFang-SC-Medium", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", tahoma, arial, simsun, "宋体";
+}
+
+#head .upload {
+    float: right;
+    /*padding:10px 20px;*/
+    outline: none;
+    cursor: pointer;
+    background-color: #1c81e5;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s;
+    width: 90px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    padding: 6px 10px;
+    margin-right: 40px;
+    margin-top: 6px;
+    box-sizing: border-box;
+}
+
+#head .upload:hover {
+    background: rgba(0, 120, 243, 0.67);
+}
+
+#main #sub_main {
+    width: 800px;
+    margin: 0 auto;
+    /*height:520px;*/
+    /*border:1px solid black;*/
+}
+
+.g-input {
+
+    /*margin-top: 20px;*/
+    width: 800px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    padding: 6px 10px;
+    box-sizing: border-box;
+}
+
+#sub_main #title {
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+#sub_main #title_1 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#title_1 #title {
+    height: 45px;
+}
+
+#sub_main #pag {
+    height: 475px;
+}
+
+#sub_main #uploadImage {
+    /*border: 1px solid #e5e5e5;*/
+    border: 1px solid #eee;
+    border-radius: 3px;
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+#uploadImage .add {
+    color: #aaaaaa;
+    line-height: 90px;
+    font-size: 18px;
+    z-index: 20;
+}
+
+#uploadImage:hover {
+    cursor: pointer;
+}
+
+
+#mian{
+    padding-bottom: 30px;
+}
+
+
+#title_1, .content{
+    position: relative;
+}
+
+#title_1 span, .content span{
+    position: absolute;
+    color: #ff6600;
+    left: 10px;
+    bottom: -18px;
+    font-size: 14px;
+}
+#head .modify {
+    float: right;
+    /*padding:10px 20px;*/
+    outline: none;
+    cursor: pointer;
+    background-color: #1c81e5;
+    font-size: 14px;
+    color: #fff;
+    transition: all 0.3s;
+    width: 90px;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    padding: 6px 10px;
+    margin-right: 40px;
+    margin-top: 6px;
+    box-sizing: border-box;
+}
+
+#head .modify:hover {
+    background: rgba(0, 120, 243, 0.67);
+}

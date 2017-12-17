@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8"/>
+    <title>登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/public/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/user/login_resign.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/fonts/iconfont.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='components/css/component.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='components/fonts/iconfont.css') }}">
+    <style>
+        ul li {
+            position: relative;
+        }
+
+        li p {
+            color: #F44336;
+            position: absolute;
+            bottom: -16px;
+            left: 44px;
+            font-size: 12px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="particles">
+    <div class="wrap">
+        <form>
+            <h1>登录</h1>
+            <ul>
+                <li>
+                    <span class="iconfont icon-name">&nbsp;&nbsp;</span>
+                    <input type="text" class="username" placeholder="用户名/手机">
+                    <p></p>
+                </li>
+                <li>
+                    <span class="iconfont icon-mima">&nbsp;&nbsp;</span>
+                    <input type="password" class="password" placeholder="密码">
+                    <p></p>
+                </li>
+                <li style="text-align: left;padding-left: 15px">
+                    <span class="iconfont icon-yanzhengma">&nbsp;&nbsp;</span>
+                    <input type="text" class="validCode" placeholder="验证码" style="width: 270px"><img
+                        class="identifyCode"
+                        src="/VerifyCode">
+                    <p></p>
+                </li>
+                <li class="text" style="position: relative"><span><a href="/user/forgetPwd">忘记密码 ?</a><a
+                        href="/user/register">新用户 ?</a></span><a
+                        href="/user/SmsLogin">短信快捷登陆</a>
+                </li>
+                <li>
+                    <input type="submit" class="submit" value="登&nbsp;录">
+                </li>
+            </ul>
+        </form>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='lib/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/js/jquery.particleground.min.js') }}"></script>
+<script src="{{ url_for('static', filename='lib/js/demo.js') }}"></script>
+<script src="{{ url_for('static', filename='components/js/component.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user/login.js') }}"></script>
+</body>
+</html>

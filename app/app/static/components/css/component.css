@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+.lin-mask {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: rgba(255, 102, 0, 0);
+}
+
+.lin-alert {
+  margin: -1500px auto;
+  width: 400px;
+  height: 250px;
+  box-shadow: 0px 0px 14px 1px rgba(0, 0, 0, 0.06);
+  background: #fff;
+  border-radius: 4px;
+}
+
+.lin-alert > p {
+  height: 50px;
+}
+
+.lin-alert > p > span {
+  display: block;
+  float: right;
+  width: 15px;
+  height: 15px;
+  font-size: 15px;
+  color: #aaa;
+  margin: 5px;
+  cursor: pointer;
+  transition: transform 0.6s;
+  -webkit-transition: transform 0.6s;
+  -moz-transition: transform 0.6s;
+}
+
+.lin-alert > p > span:hover {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg); /*兼容-webkit-引擎浏览器*/
+  -moz-transform: rotate(90deg); /*兼容-moz-引擎浏览器*/
+}
+.lin-alert .lin-info {
+  text-align: center;
+}
+
+.lin-info span {
+  font-size: 70px;
+}
+
+.lin-info > p {
+  padding: 0 10px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.lin-alert a {
+  position: absolute;
+  left: 170px;
+  bottom: 20px;
+  display: block;
+  width: 60px;
+  float: right;
+  text-align: center;
+  border-radius: 2px;
+  font-size: 14px;
+  padding: 2px;
+  cursor: pointer;
+  background: #fff;
+  transition: background 0.6s;
+  -webkit-transition: background 0.6s;
+  -moz-transition: background 0.6s;
+}
+
+.lin-con {
+  position: absolute;
+  bottom: 0;
+}
+
+.lin-con-confirm {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0 50px;
+  width: 100%;
+  bottom: 30px;
+}
+.lin-con input {
+  width: 60px;
+  height: 30px;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.6s;
+  -webkit-transition: background 0.6s;
+  -moz-transition: background 0.6s;
+}
+.lin-con .success {
+  border: 1px solid #5ec77b;
+}
+.lin-con .wanning {
+  border: 1px solid rgb(235, 43, 43);
+}
+.lin-con .success:hover {
+  background: rgba(94, 199, 123, 0.1);
+}
+
+.lin-con .wanning:hover {
+  background: rgba(235, 43, 43, 0.1);
+}
+
+.success {
+  color: rgb(94, 199, 123);
+}
+.wanning {
+  color: rgb(235, 43, 43);
+}
+
+.lin-confirm {
+  color: rgb(50, 193, 212);
+}
+
+.lin-con .lin-confirm {
+  border: 1px solid rgb(50, 193, 212);
+}
+.lin-con .lin-confirm:hover {
+  background: rgba(50, 193, 212, 0.1);
+}
